@@ -1,19 +1,23 @@
-import { Route, Routes } from "react-router"
-import Home from "./pages/Home"
-import Dogs from "./pages/Dogs"
-import Doginfo from "./pages/Doginfo"
-
-
+import { createBrowserRouter, RouterProvider } from "react-router"
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 
 function App() {
+
+  const browserRouter = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/details/:petId',
+      element: <Details/>
+    }
+  ]);
   
 
   return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="archive/:name" element={<Dogs />} />
-      <Route path="popular/:name" element={<Doginfo />} />
-    </Routes>
+    <RouterProvider router={browserRouter} />
   )
 }
 
