@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
 import Home from "./pages/Home";
+import petsLoader from "./loaders/petsLoader";
 import Details from "./pages/Details";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
   const browserRouter = createBrowserRouter([
     {
       path: '/',
-      element: <Home />
+      element: <Home />,
+      loader: petsLoader,
+      hydrateFallbackElement: <p>Loading...</p>
     },
     {
       path: '/details/:petId',
