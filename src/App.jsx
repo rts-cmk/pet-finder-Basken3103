@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import Home from "./pages/Home";
 import petsLoader from "./loaders/petsLoader";
 import Details from "./pages/Details";
+import petDetailsLoader from "./loaders/petDetailsLoader";
+import Admin from "./pages/Admin";
 
 function App() {
 
@@ -12,10 +14,18 @@ function App() {
       loader: petsLoader,
       hydrateFallbackElement: <p>Loading...</p>
     },
+
     {
       path: '/details/:petId',
-      element: <Details/>
+      element: <Details />,
+      loader: petDetailsLoader
+    },
+
+    {
+      path: '/admin',
+      element: <Admin />       // <-- HER ER DEN NYE ROUTE
     }
+    
   ]);
   
 
